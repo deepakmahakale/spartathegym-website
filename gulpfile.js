@@ -26,8 +26,8 @@ var path = {
     fonts: "source/fonts/**/*.+(eot|ttf|woff|woff2|otf)",
   },
   build: {
-    dirBuild: "theme/",
-    dirDev: "theme/",
+    dirBuild: "site/",
+    dirDev: "site/",
   },
 };
 
@@ -40,14 +40,6 @@ gulp.task("html:build", function () {
       fileinclude({
         basepath: path.src.incdir,
       })
-    )
-    .pipe(
-      comments(`
-    WEBSITE: https://themefisher.com
-    TWITTER: https://twitter.com/themefisher
-    FACEBOOK: https://www.facebook.com/themefisher
-    GITHUB: https://github.com/themefisher/
-    `)
     )
     .pipe(gulp.dest(path.build.dirDev))
     .pipe(
@@ -69,14 +61,6 @@ gulp.task("scss:build", function () {
     )
     .pipe(autoprefixer())
     .pipe(sourcemaps.write("/"))
-    .pipe(
-      comments(`
-    WEBSITE: https://themefisher.com
-    TWITTER: https://twitter.com/themefisher
-    FACEBOOK: https://www.facebook.com/themefisher
-    GITHUB: https://github.com/themefisher/
-    `)
-    )
     .pipe(gulp.dest(path.build.dirDev + "css/"))
     .pipe(
       bs.reload({
@@ -101,14 +85,6 @@ gulp.task("js:build", function () {
     )
     .pipe(jshint.reporter("jshint-stylish"))
     .on("error", gutil.log)
-    .pipe(
-      comments(`
-  WEBSITE: https://themefisher.com
-  TWITTER: https://twitter.com/themefisher
-  FACEBOOK: https://www.facebook.com/themefisher
-  GITHUB: https://github.com/themefisher/
-  `)
-    )
     .pipe(gulp.dest(path.build.dirDev + "js/"))
     .pipe(
       bs.reload({
@@ -160,7 +136,7 @@ gulp.task("others:build", function () {
 
 // Clean Build Folder
 gulp.task("clean", function (cb) {
-  rimraf("./theme", cb);
+  rimraf("./site", cb);
 });
 
 // Error Message Show
