@@ -26,8 +26,8 @@ var path = {
     fonts: "source/fonts/**/*.+(eot|ttf|woff|woff2|otf)",
   },
   build: {
-    dirBuild: "site/",
-    dirDev: "site/",
+    dirBuild: "_site/",
+    dirDev: "_site/",
   },
 };
 
@@ -136,7 +136,7 @@ gulp.task("others:build", function () {
 
 // Clean Build Folder
 gulp.task("clean", function (cb) {
-  rimraf("./site", cb);
+  rimraf("./_site", cb);
 });
 
 // Error Message Show
