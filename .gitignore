@@ -5,7 +5,5 @@ Thumbs.db
 .sass-cache
 npm-debug.log
 node_modules
-package-lock.json
-yarn.lock
 netlify
-site
+_site
